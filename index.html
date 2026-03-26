@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — HTML Viewer by NexLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text2: #334155;
+      --text3: #64748b;
+      --text4: #94a3b8;
+      --accent: #14b8a6;
+      --accent2: #0d9488;
+      --border: #e2e8f0;
+      --hero-start: #0f172a;
+      --hero-end: #1e3a5f;
+      --green-bg: #f0fdf4;
+      --green-border: #14b8a6;
+      --yellow-bg: #fefce8;
+      --yellow-border: #eab308;
+      --red-bg: #fef2f2;
+      --red-border: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text2); line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--hero-start), var(--hero-end));
+      padding: 60px 24px 48px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -40%; right: -20%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(20,184,166,0.15), transparent 70%); border-radius: 50%;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -30%; left: -10%; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%); border-radius: 50%;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .hero .logo {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 20px 8px 12px; border-radius: 14px; margin-bottom: 24px;
+    }
+    .hero .logo-icon {
+      width: 36px; height: 36px; background: var(--accent); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+    }
+    .hero .logo span { color: #fff; font-weight: 700; font-size: 0.95rem; }
+    .hero h1 { color: #fff; font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .hero .sub { color: rgba(255,255,255,0.5); font-size: 0.95rem; }
+    .hero .updated {
+      display: inline-block; margin-top: 20px; padding: 6px 16px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; color: rgba(255,255,255,0.6); font-size: 0.8rem;
+    }
+
+    /* ── Content ─────────────────────────────────────────── */
+    .content { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .summary {
+      background: var(--green-bg); border: 1px solid rgba(20,184,166,0.2);
+      border-radius: 16px; padding: 24px; margin: -32px 0 40px;
+      position: relative; z-index: 2;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    .summary p { margin: 0; color: var(--text); font-weight: 500; font-size: 0.9rem; line-height: 1.7; }
+    .summary strong { color: var(--accent2); }
+
+    h2 {
+      font-size: 1.2rem; font-weight: 800; color: var(--text); margin: 40px 0 16px;
+      padding-bottom: 8px; border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .num {
+      display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center;
+      background: var(--accent); color: #fff; border-radius: 8px;
+      font-size: 0.75rem; font-weight: 800; flex-shrink: 0;
+    }
+    h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
+    p { font-size: 0.93rem; color: var(--text2); margin-bottom: 14px; }
+    ul { padding-left: 20px; margin-bottom: 16px; }
+    li { font-size: 0.9rem; color: var(--text3); margin-bottom: 8px; padding-left: 4px; }
+    li strong { color: var(--text2); }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Tables ──────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 12px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; min-width: 480px; }
+    th { text-align: left; padding: 12px 16px; background: #f1f5f9; color: var(--text3); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; }
+    td { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 0.88rem; color: var(--text2); }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; }
+    .badge-g { background: #dcfce7; color: #166534; }
+    .badge-y { background: #fef9c3; color: #854d0e; }
+
+    /* ── Callout boxes ───────────────────────────────────── */
+    .callout {
+      border-radius: 12px; padding: 18px 20px; margin: 20px 0;
+      border-left: 4px solid; display: flex; gap: 12px; align-items: flex-start;
+    }
+    .callout p { margin: 0; font-size: 0.88rem; line-height: 1.6; }
+    .callout-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .callout-green { background: var(--green-bg); border-color: var(--green-border); }
+    .callout-yellow { background: var(--yellow-bg); border-color: var(--yellow-border); }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 32px 24px; color: var(--text4);
+      font-size: 0.8rem; border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px 36px; }
+      .hero h1 { font-size: 1.8rem; }
+      .content { padding: 0 16px 60px; }
+      .summary { margin: -24px 0 32px; padding: 18px; }
+      h2 { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo">
+      <div class="logo-icon">H</div>
+      <span>HTML Viewer</span>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="sub">Your privacy matters. Here's how we handle your data.</p>
+    <div class="updated">Last updated: March 26, 2025</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="summary">
+    <p><strong>In short:</strong> HTML Viewer stores everything locally on your device. We don't collect, transmit, or store any personal data on servers. The only third-party data collection is by Google AdMob for advertising in the free version.</p>
+  </div>
+
+  <p>This Privacy Policy explains how <strong>HTML Viewer</strong> ("we," "us," "the App"), developed by <strong>NexLab</strong>, handles information when you use our Android application.</p>
+
+  <!-- ── 1 ────────────────────────────────────────────────── -->
+  <h2><span class="num">1</span> Information We Collect</h2>
+
+  <h3>1.1 Data Stored Locally on Your Device</h3>
+  <p>The following data is stored exclusively on your device using local storage. It never leaves your device and we cannot access it:</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Data</th><th>Purpose</th><th>Storage</th></tr></thead>
+    <tbody>
+      <tr><td>Browsing History</td><td>Show recently visited URLs</td><td><span class="badge badge-g">Device Only</span></td></tr>
+      <tr><td>Bookmarks</td><td>Save favorite pages</td><td><span class="badge badge-g">Device Only</span></td></tr>
+      <tr><td>HTML Files &amp; Projects</td><td>User-created content</td><td><span class="badge badge-g">Device Only</span></td></tr>
+      <tr><td>Settings &amp; Preferences</td><td>Theme, zoom, search engine</td><td><span class="badge badge-g">Device Only</span></td></tr>
+      <tr><td>Subscription Status</td><td>Premium access tracking</td><td><span class="badge badge-g">Device Only</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>1.2 Data Collected by Third Parties</h3>
+  <p>The free version displays ads by <strong>Google AdMob</strong>, which may collect:</p>
+  <ul>
+    <li><strong>Advertising ID</strong> — Resettable device identifier for ad targeting</li>
+    <li><strong>IP Address</strong> — Approximate location (country/region)</li>
+    <li><strong>Device Info</strong> — Model, OS version, screen size</li>
+    <li><strong>Ad Interaction Data</strong> — Impressions, clicks, video completions</li>
+  </ul>
+  <p>See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for full details.</p>
+
+  <h3>1.3 What We Do NOT Collect</h3>
+  <ul>
+    <li>Names, emails, phone numbers, or personal identifiers</li>
+    <li>Content of your HTML files or code</li>
+    <li>Browsing history from the built-in browser</li>
+    <li>Photos, contacts, messages, or data from other apps</li>
+    <li>No user accounts or registration required</li>
+    <li>No analytics SDKs (no Firebase Analytics, Mixpanel, etc.)</li>
+  </ul>
+
+  <!-- ── 2 ────────────────────────────────────────────────── -->
+  <h2><span class="num">2</span> Advertising</h2>
+
+  <h3>2.1 Banner Ads</h3>
+  <p>The free version shows banner ads at the bottom of certain screens, served by Google AdMob.</p>
+
+  <h3>2.2 Rewarded Video Ads</h3>
+  <p>Premium features can be temporarily unlocked by watching rewarded video ads (15–30 seconds). The unlock is session-based and resets when you leave the screen. No personal data is collected by us during this process.</p>
+
+  <h3>2.3 Opt Out of Personalized Ads</h3>
+  <ul>
+    <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalization</li>
+    <li><strong>Android 12+:</strong> Settings → Privacy → Ads → Delete advertising ID</li>
+  </ul>
+  <p>Opting out doesn't remove ads — they just become less targeted.</p>
+
+  <h3>2.4 Ad-Free Option</h3>
+  <p>Premium subscribers enjoy a fully ad-free experience with no AdMob data collection.</p>
+
+  <!-- ── 3 ────────────────────────────────────────────────── -->
+  <h2><span class="num">3</span> Subscriptions &amp; Payments</h2>
+  <p>HTML Viewer offers optional subscriptions ($2.99/month or $9.99/year). All payments are processed by <strong>Google Play Billing</strong>. We never see or store credit card numbers, billing addresses, or financial data. See <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play payment support</a>.</p>
+
+  <!-- ── 4 ────────────────────────────────────────────────── -->
+  <h2><span class="num">4</span> App Permissions</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Permission</th><th>Why</th><th>Off-Device?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Internet</strong></td><td>Browser, ads, fonts</td><td><span class="badge badge-y">Ads only</span></td></tr>
+      <tr><td><strong>Camera</strong></td><td>QR Code Scanner</td><td><span class="badge badge-g">No</span></td></tr>
+      <tr><td><strong>Storage</strong></td><td>Open &amp; save HTML files</td><td><span class="badge badge-g">No</span></td></tr>
+      <tr><td><strong>Network State</strong></td><td>Check connectivity</td><td><span class="badge badge-g">No</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout callout-yellow">
+    <span class="callout-icon">📷</span>
+    <p><strong>Camera:</strong> Used only for the QR scanner. Video is processed on-device in real time. Nothing is recorded, saved, or transmitted. Active only while the scanner is open.</p>
+  </div>
+
+  <!-- ── 5 ────────────────────────────────────────────────── -->
+  <h2><span class="num">5</span> Third-Party Services</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Service</th><th>Purpose</th><th>Policy</th></tr></thead>
+    <tbody>
+      <tr><td>Google AdMob</td><td>Banner &amp; rewarded ads</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></td></tr>
+      <tr><td>Google Play Billing</td><td>Subscription payments</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></td></tr>
+      <tr><td>Google Fonts</td><td>Typography</td><td><a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">FAQ</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- ── 6 ────────────────────────────────────────────────── -->
+  <h2><span class="num">6</span> Data Security</h2>
+  <p>All data lives on your device, protected by your device's built-in encryption and screen lock. We cannot access your data remotely. Uninstalling the app permanently deletes all stored data.</p>
+
+  <!-- ── 7 ────────────────────────────────────────────────── -->
+  <h2><span class="num">7</span> Data Retention &amp; Deletion</h2>
+  <ul>
+    <li><strong>History &amp; bookmarks:</strong> Stored until you clear them (Settings → Clear History)</li>
+    <li><strong>Files &amp; projects:</strong> Stored until you delete them</li>
+    <li><strong>Full deletion:</strong> Uninstall the app — all data is permanently removed</li>
+  </ul>
+
+  <!-- ── 8 ────────────────────────────────────────────────── -->
+  <h2><span class="num">8</span> Children's Privacy</h2>
+  <p>HTML Viewer is not directed at children under 13. We do not knowingly collect information from children. Ads comply with <a href="https://support.google.com/admob/answer/6223033" target="_blank" rel="noopener">Google's child-directed treatment policies</a>.</p>
+
+  <!-- ── 9 ────────────────────────────────────────────────── -->
+  <h2><span class="num">9</span> International Users</h2>
+  <p>We don't transfer personal data across borders. Google AdMob follows GDPR-compliant data processing for EEA users.</p>
+
+  <!-- ── 10 ───────────────────────────────────────────────── -->
+  <h2><span class="num">10</span> Your Rights</h2>
+  <ul>
+    <li><strong>Access:</strong> All data is on your device — you always have full access</li>
+    <li><strong>Delete:</strong> Clear history in Settings, or uninstall the app</li>
+    <li><strong>Opt-out:</strong> Disable personalized ads via device settings</li>
+    <li><strong>Portability:</strong> HTML files are standard — copy and share freely</li>
+    <li><strong>Permissions:</strong> Revoke any permission anytime in device Settings</li>
+  </ul>
+
+  <!-- ── 11 ───────────────────────────────────────────────── -->
+  <h2><span class="num">11</span> Policy Changes</h2>
+  <p>We may update this policy for legal or operational reasons. The "Last updated" date will change. Continued use after updates means acceptance.</p>
+
+  <!-- ── 12 ───────────────────────────────────────────────── -->
+  <h2><span class="num">12</span> Contact Us</h2>
+  <p>Questions or concerns about this policy?</p>
+  <div class="callout callout-green">
+    <span class="callout-icon">✉️</span>
+    <p><strong>Email:</strong> <a href="mailto:support@nexlab.io">support@nexlab.io</a><br><strong>Developer:</strong> NexLab<br>We respond within 30 business days.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 NexLab — HTML Viewer. All rights reserved.</p>
+  <p style="margin-top:6px"><a href="https://play.google.com/store/apps/details?id=com.nexlab.htmlviewer">Download on Google Play</a></p>
+</footer>
+
+</body>
+</html>
