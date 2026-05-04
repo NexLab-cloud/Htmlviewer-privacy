@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions — HTML Viewer by NexLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text2: #334155;
+      --text3: #64748b;
+      --text4: #94a3b8;
+      --accent: #14b8a6;
+      --accent2: #0d9488;
+      --primary: #0f172a;
+      --border: #e2e8f0;
+      --hero-start: #0f172a;
+      --hero-end: #1e3a5f;
+      --green-bg: #f0fdf4;
+      --yellow-bg: #fefce8;
+      --blue-bg: #eff6ff;
+      --red-bg: #fef2f2;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text2);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--hero-start) 0%, var(--hero-end) 100%);
+      padding: 56px 24px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+    .logo-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 7px 18px 7px 10px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: var(--accent);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: #fff;
+    }
+    .logo-badge span { color: #fff; font-weight: 700; font-size: 0.9rem; }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .hero .sub { color: rgba(255,255,255,0.5); font-size: 0.95rem; }
+    .hero .meta {
+      display: inline-flex; gap: 16px; margin-top: 22px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .meta-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 5px 14px; border-radius: 20px;
+      color: rgba(255,255,255,0.6); font-size: 0.78rem;
+    }
+    .meta-pill span { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    /* ── Summary card ─────────────────────────────────────────── */
+    .content { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 28px;
+      margin: -28px 0 44px;
+      position: relative; z-index: 2;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+    }
+    .summary-card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .summary-card strong { color: var(--accent2); }
+
+    /* ── Dev box ──────────────────────────────────────────────── */
+    .dev-box {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 36px;
+      display: flex; gap: 10px; align-items: center;
+    }
+    .dev-box-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .dev-box p { margin: 0; font-size: 0.86rem; color: var(--text2); }
+    .dev-box strong { color: var(--text); }
+
+    /* ── TOC ──────────────────────────────────────────────────── */
+    .toc {
+      background: var(--blue-bg);
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .toc-title {
+      font-size: 0.8rem; font-weight: 800;
+      color: #1d4ed8; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .toc-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc-list li a {
+      display: inline-block;
+      background: rgba(59,130,246,0.08);
+      color: #2563eb;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .toc-list li a:hover { background: rgba(59,130,246,0.15); }
+
+    /* ── Sections ─────────────────────────────────────────────── */
+    .section { margin-bottom: 40px; scroll-margin-top: 20px; }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-num {
+      display: inline-flex;
+      width: 28px; height: 28px;
+      align-items: center; justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 22px 0 8px;
+    }
+
+    p { font-size: 0.92rem; color: var(--text2); margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol { padding-left: 20px; margin-bottom: 16px; }
+    li { font-size: 0.9rem; color: var(--text3); margin-bottom: 8px; padding-left: 4px; }
+    li strong { color: var(--text2); }
+
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Callout boxes ────────────────────────────────────────── */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 4px solid;
+      display: flex; gap: 12px;
+    }
+    .callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .callout p { margin: 0; font-size: 0.87rem; line-height: 1.6; }
+    .callout-green  { background: var(--green-bg);  border-color: var(--accent); }
+    .callout-yellow { background: var(--yellow-bg); border-color: #eab308; }
+    .callout-blue   { background: var(--blue-bg);   border-color: #3b82f6; }
+    .callout-red    { background: var(--red-bg);    border-color: #ef4444; }
+
+    /* ── Table ────────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 12px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; min-width: 460px; }
+    th { text-align: left; padding: 11px 16px; background: #f1f5f9; color: var(--text3); font-weight: 700; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.8px; }
+    td { padding: 11px 16px; border-top: 1px solid var(--border); font-size: 0.87rem; color: var(--text2); }
+
+    /* ── Contact card ─────────────────────────────────────────── */
+    .contact-card {
+      background: linear-gradient(135deg, #0f172a, #1e3a5f);
+      border-radius: 18px;
+      padding: 28px;
+      color: #fff;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-card h3 { color: #fff; margin-top: 0; }
+    .contact-card p { color: rgba(255,255,255,0.6); font-size: 0.88rem; }
+    .contact-btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--text4);
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px 36px; }
+      .hero h1 { font-size: 1.75rem; }
+      .content { padding: 0 16px 60px; }
+      .summary-card { margin: -20px 0 28px; padding: 18px; }
+      h2 { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero ──────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-badge">
+      <div class="logo-icon">H</div>
+      <span>HTML Viewer</span>
+    </div>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="sub">Please read these terms carefully before using the app.</p>
+    <div class="meta">
+      <div class="meta-pill">Last updated: <span>May 2025</span></div>
+      <div class="meta-pill">Developer: <span>NexLab</span></div>
+      <div class="meta-pill">App: <span>HTML Viewer</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Content ────────────────────────────────────────────────────── -->
+<div class="content">
+
+  <!-- Summary -->
+  <div class="summary-card">
+    <p><strong>Plain English summary:</strong> By using HTML Viewer, you agree to these terms. The app is provided as-is for personal and professional use. Subscriptions are billed through Google Play or Huawei AppGallery. You can cancel anytime. We are not liable for any data loss. Content you create belongs to you.</p>
+  </div>
+
+  <!-- Developer info -->
+  <div class="dev-box">
+    <span class="dev-box-icon">🏢</span>
+    <p><strong>Developer:</strong> NexLab &nbsp;|&nbsp; <strong>App:</strong> HTML Viewer &nbsp;|&nbsp; <strong>Package:</strong> com.nexlab.htmlviewer &nbsp;|&nbsp; <strong>Contact:</strong> <a href="mailto:rajtanha.rt@gmail.com">rajtanha.rt@gmail.com</a></p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 Table of Contents</div>
+    <ul class="toc-list">
+      <li><a href="#acceptance">1. Acceptance</a></li>
+      <li><a href="#license">2. License</a></li>
+      <li><a href="#subscriptions">3. Subscriptions &amp; Payments</a></li>
+      <li><a href="#ads">4. Advertising</a></li>
+      <li><a href="#content">5. User Content</a></li>
+      <li><a href="#prohibited">6. Prohibited Use</a></li>
+      <li><a href="#ip">7. Intellectual Property</a></li>
+      <li><a href="#privacy">8. Privacy</a></li>
+      <li><a href="#disclaimer">9. Disclaimer</a></li>
+      <li><a href="#liability">10. Limitation of Liability</a></li>
+      <li><a href="#termination">11. Termination</a></li>
+      <li><a href="#changes">12. Changes to Terms</a></li>
+      <li><a href="#governing">13. Governing Law</a></li>
+      <li><a href="#contact">14. Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="acceptance">
+    <h2><span class="section-num">1</span> Acceptance of Terms</h2>
+    <p>By downloading, installing, or using the <strong>HTML Viewer</strong> application ("App") developed by <strong>NexLab</strong>, you agree to be bound by these Terms &amp; Conditions ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+    <p>These Terms apply to all users of the App, including users of the free version and premium subscribers.</p>
+    <div class="callout callout-blue">
+      <span class="callout-icon">ℹ️</span>
+      <p>By tapping "Accept &amp; Continue" on first launch, you confirm that you have read, understood, and agreed to these Terms and our Privacy Policy.</p>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="license">
+    <h2><span class="section-num">2</span> License to Use</h2>
+    <p>NexLab grants you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal or professional purposes on Android devices you own or control.</p>
+    <h3>You may:</h3>
+    <ul>
+      <li>View, create, and edit HTML files on your device</li>
+      <li>Browse the web using the built-in browser</li>
+      <li>Use developer tools and templates included in the App</li>
+      <li>Use the App on multiple devices associated with your account</li>
+    </ul>
+    <h3>You may not:</h3>
+    <ul>
+      <li>Copy, modify, or distribute the App or its source code</li>
+      <li>Reverse engineer, decompile, or disassemble the App</li>
+      <li>Rent, lease, sell, or sublicense the App to any third party</li>
+      <li>Remove any copyright or proprietary notices from the App</li>
+      <li>Use the App for any unlawful purpose</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="subscriptions">
+    <h2><span class="section-num">3</span> Subscriptions &amp; Payments</h2>
+    <p>HTML Viewer offers an optional premium subscription that unlocks additional features.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Plan</th><th>Price</th><th>Billing</th><th>Features</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Free</td><td>$0.00</td><td>—</td><td>Core features + Ads</td></tr>
+          <tr><td>Premium Monthly</td><td>$2.99/month</td><td>Monthly</td><td>All features, Ad-free</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Billing</h3>
+    <p>Subscriptions are processed through <strong>Google Play Billing</strong> (on Google Play) or <strong>Huawei AppGallery</strong> (on AppGallery). Payment is charged to your store account at confirmation of purchase.</p>
+
+    <h3>Auto-Renewal</h3>
+    <p>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. Renewal charges are applied within 24 hours before the period ends at the same price.</p>
+
+    <h3>Cancellation</h3>
+    <p>You can cancel your subscription at any time through your Google Play or Huawei AppGallery account settings. Cancellation takes effect at the end of the current billing period — you will retain access to premium features until then.</p>
+
+    <h3>Refunds</h3>
+    <p>Refund requests are handled by the respective app store (Google Play or Huawei AppGallery) according to their refund policies. NexLab does not process refunds directly.</p>
+
+    <div class="callout callout-yellow">
+      <span class="callout-icon">⚠️</span>
+      <p><strong>Note:</strong> Premium subscriptions on Huawei AppGallery are coming soon. Currently the free version with ads is available on AppGallery.</p>
+    </div>
+
+    <h3>Free Trials</h3>
+    <p>If a free trial is offered, it will be clearly indicated before purchase. At the end of the trial period, your subscription will automatically convert to a paid subscription unless cancelled before the trial ends.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="ads">
+    <h2><span class="section-num">4</span> Advertising</h2>
+    <p>The free version of HTML Viewer displays advertisements served by <strong>Google AdMob</strong>. By using the free version, you consent to the display of these advertisements.</p>
+    <ul>
+      <li>Ads may be personalised based on your interests and device information</li>
+      <li>NexLab does not control the content of advertisements served by AdMob</li>
+      <li>Premium subscribers enjoy an <strong>ad-free</strong> experience</li>
+      <li>Some features require watching a rewarded video ad to unlock temporarily</li>
+    </ul>
+    <p>Ad availability depends on your region and network connection. If an ad fails to load, you may retry or consider upgrading to premium for permanent access.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="content">
+    <h2><span class="section-num">5</span> User Content</h2>
+    <p>You retain full ownership of all HTML files, code, and content you create or import using the App. NexLab does not claim any ownership over your content.</p>
+    <ul>
+      <li><strong>Local storage only:</strong> Your files are stored on your device and are not uploaded to any server</li>
+      <li><strong>Your responsibility:</strong> You are solely responsible for the content you create and the websites you browse</li>
+      <li><strong>No monitoring:</strong> NexLab does not monitor or review the content you view or create</li>
+    </ul>
+    <div class="callout callout-green">
+      <span class="callout-icon">✅</span>
+      <p>Your HTML files, projects, and browsing history stay on your device. We never upload or access your content.</p>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="prohibited">
+    <h2><span class="section-num">6</span> Prohibited Use</h2>
+    <p>You agree not to use the App to:</p>
+    <ul>
+      <li>Create, distribute, or access content that is illegal, harmful, or offensive</li>
+      <li>Infringe upon the intellectual property rights of others</li>
+      <li>Transmit malware, viruses, or any malicious code</li>
+      <li>Attempt to gain unauthorised access to any system or network</li>
+      <li>Harass, threaten, or harm other individuals</li>
+      <li>Violate any applicable local, national, or international law or regulation</li>
+      <li>Circumvent, disable, or interfere with security features of the App</li>
+    </ul>
+    <div class="callout callout-red">
+      <span class="callout-icon">🚫</span>
+      <p>Violation of these prohibitions may result in immediate termination of your access to the App and may be reported to relevant authorities.</p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="ip">
+    <h2><span class="section-num">7</span> Intellectual Property</h2>
+    <p>The App, including its design, code, graphics, templates, and all other content provided by NexLab, is the exclusive property of NexLab and is protected by copyright, trademark, and other intellectual property laws.</p>
+    <p>The HTML templates and starter files provided within the App are licensed for use within the App only. You may use the generated output (HTML files you create) for any purpose, including commercial projects.</p>
+    <p>Third-party libraries and services used within the App retain their own intellectual property rights and are governed by their respective licenses.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="privacy">
+    <h2><span class="section-num">8</span> Privacy</h2>
+    <p>Your use of the App is also governed by our <a href="https://nexlab-cloud.github.io/Htmlviewer-privacy/" target="_blank">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+    <p>Key points:</p>
+    <ul>
+      <li>All user data (history, bookmarks, projects) is stored locally on your device</li>
+      <li>No personal data is transmitted to NexLab servers</li>
+      <li>Google AdMob may collect anonymised data for ad serving</li>
+      <li>Google Play and Huawei AppGallery may collect purchase and device information</li>
+    </ul>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="disclaimer">
+    <h2><span class="section-num">9</span> Disclaimer of Warranties</h2>
+    <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, either express or implied, including but not limited to:</p>
+    <ul>
+      <li>Implied warranties of merchantability or fitness for a particular purpose</li>
+      <li>Warranty that the App will be uninterrupted, error-free, or free of viruses</li>
+      <li>Warranty that defects will be corrected</li>
+      <li>Warranty regarding the accuracy or reliability of any information obtained through the App</li>
+    </ul>
+    <p>NexLab does not warrant that the App will meet your specific requirements or that it will be compatible with all devices or operating system versions.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="liability">
+    <h2><span class="section-num">10</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, NexLab and its developers shall not be liable for:</p>
+    <ul>
+      <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+      <li>Loss of data, profits, revenue, or business opportunities</li>
+      <li>Damages arising from your use or inability to use the App</li>
+      <li>Damages resulting from unauthorised access to your data</li>
+      <li>Any content accessed through the built-in browser</li>
+    </ul>
+    <p>In no event shall NexLab's total liability to you exceed the amount you paid for the App in the twelve months preceding the claim, or $10.00 USD if no payment was made.</p>
+    <div class="callout callout-yellow">
+      <span class="callout-icon">⚠️</span>
+      <p>Some jurisdictions do not allow the exclusion of certain warranties or limitations of liability. In such cases, the above limitations may not apply to you.</p>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="termination">
+    <h2><span class="section-num">11</span> Termination</h2>
+    <p>NexLab reserves the right to terminate or suspend your access to the App at any time, with or without notice, if you violate these Terms or engage in conduct that NexLab determines to be harmful.</p>
+    <p>You may terminate your use of the App at any time by uninstalling it from your device. If you have an active subscription, cancellation must be done through your app store account settings.</p>
+    <p>Upon termination, the license granted to you under these Terms will immediately cease. All provisions of these Terms that by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="changes">
+    <h2><span class="section-num">12</span> Changes to Terms</h2>
+    <p>NexLab reserves the right to modify these Terms at any time. When we make changes, we will update the "Last updated" date at the top of this page.</p>
+    <p>Your continued use of the App after any changes to these Terms constitutes your acceptance of the new Terms. If you do not agree to the updated Terms, you should stop using the App.</p>
+    <p>For significant changes, we will make reasonable efforts to notify you through the App or via an update notice on the app store.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section" id="governing">
+    <h2><span class="section-num">13</span> Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+    <p>Any disputes arising from these Terms or your use of the App shall first be attempted to be resolved through good-faith negotiation. If resolution cannot be reached, disputes shall be subject to the exclusive jurisdiction of the competent courts.</p>
+    <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="section" id="contact">
+    <h2><span class="section-num">14</span> Contact Us</h2>
+    <p>If you have any questions, concerns, or feedback about these Terms &amp; Conditions, please reach out to us.</p>
+
+    <div class="contact-card">
+      <h3>📬 Get in Touch</h3>
+      <p>We aim to respond to all inquiries within 2–3 business days.</p>
+      <a href="mailto:rajtanha.rt@gmail.com?subject=HTML Viewer - Terms Inquiry" class="contact-btn">Contact Support</a>
+      <p style="margin-top: 14px; font-size: 0.78rem;">
+        Developer: NexLab &nbsp;·&nbsp; App: HTML Viewer &nbsp;·&nbsp; Package: com.nexlab.htmlviewer
+      </p>
+    </div>
+  </div>
+
+</div><!-- /.content -->
+
+<footer>
+  <p>© 2025 NexLab. All rights reserved.</p>
+  <p style="margin-top: 6px;">
+    <a href="https://nexlab-cloud.github.io/Htmlviewer-privacy/" target="_blank">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    Terms &amp; Conditions
+    &nbsp;·&nbsp;
+    <a href="mailto:rajtanha.rt@gmail.com">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
